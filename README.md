@@ -3,7 +3,7 @@
 The repository is created for educational purposes, to learn and gain experience of using Github. 
 The repository (will) contains a latex file showcasing projects created by the repository members.
 
-Member Details
+### Member Details
 | Name               | Email                        | Roll No.   | Dep.                          | Github Link                       |
 |--------------------|------------------------------|------------|-------------------------------|----------------------------------|
 | Anshu Kumar Singh  | thisissidam@gmail.com        | 30054623011 | BSc in AI                      | [ThisIsSidam](https://github.com/ThisIsSidam) |
