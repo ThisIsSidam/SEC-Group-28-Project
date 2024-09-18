@@ -1,0 +1,117 @@
+
+\section{Calculator in C }
+
+\subsection{Objective}
+The objective of this lab is to develop a basic calculator program using the C programming language. The calculator will perform simple arithmetic operations like addition, subtraction, multiplication, and division based on user input.
+
+\subsection{Program Overview}
+The calculator program is designed to:
+\begin{itemize}
+    \item Accept two numbers from the user.
+    \item Prompt the user to select an arithmetic operation (Addition, Subtraction, Multiplication, Division).
+    \item Perform the selected operation.
+    \item Display the result of the operation to the user.
+\end{itemize}
+The program includes error handling to manage division by zero and other invalid inputs.
+
+\subsection{Code Implementation}
+The following is the C code for the calculator program:
+
+\begin{lstlisting}[language=C, caption={Calculator Program in C}, label={lst:calculator}]
+#include <stdio.h>
+
+int main() {
+    char operator;
+    double num1, num2, result;
+
+    printf("Enter an operator (+, -, *, /): ");
+    scanf(" %c", &operator);
+
+    printf("Enter two operands: ");
+    scanf("%lf %lf", &num1, &num2);
+
+    switch(operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0)
+                result = num1 / num2;
+            else {
+                printf("Error! Division by zero.\n");
+                return -1;
+            }
+            break;
+        default:
+            printf("Error! Operator is not correct\n");
+            return -1;
+    }
+
+    printf("Result: %.2lf\n", result);
+    return 0;
+}
+\end{lstlisting}
+
+
+
+
+
+\title \textbf{ Adding  Calculator Program to a GitHub Repository Using GitHub Desktop}
+\author{}
+\date{}
+
+\begin{document}
+ 
+\maketitle  
+
+
+   
+To add calculator program to a GitHub repository using GitHub Desktop, follow these steps:
+
+\subsection{Initialize a Local Git Repository}
+\begin{enumerate}
+    \item Open \textbf{GitHub Desktop}.
+    \item Click on \textbf{File} \textbf{New Repository}.
+    \item Fill in the repository details:
+    \begin{itemize}
+        \item \textbf{}: Name the repository.
+        \item \textbf{}: Choose or create a directory where the \textbf{calculator.c} file is located.
+        \item \textbf{} Select a template to ignore certain files.
+    \end{itemize}
+    \item Click \textbf{Create Repository}. This initializes the repository and opens it in GitHub Desktop.
+\end{enumerate}
+
+\subsection{Add the File to the Repository}
+\begin{enumerate}
+    \item In \textbf{GitHub Desktop}, see the \texttt{calculator.c} file listed under the \textbf{Changes} tab on the left side.
+    \item Add a summary and optional description for your commit in the \textbf{Summary} and \textbf{Description} fields at the bottom left.
+\end{enumerate}
+
+\subsection{Commit the Changes}
+\begin{enumerate}
+    \item After reviewing the changes, click \textbf{Commit to main} (or \textbf{master}, depending on the default branch name) in the lower-left corner.
+\end{enumerate}
+
+\subsection{Push the Changes to GitHub}
+\begin{enumerate}
+    \item After committing the changes, then publish the repository:
+    \begin{itemize}
+        \item Click on the \textbf{Publish repository} button in the upper-right corner.
+        \item If this is a new repository, GitHub Desktop will prompt to enter a name for the remote repository and optionally a description.
+        \item Click \textbf{Publish repository} to push the local commits to GitHub.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Verify the Upload}
+\begin{enumerate}
+    \item Open the web browser and navigate to GitHub repository URL.
+    \item Verify that the \texttt{calculator.c} file is listed and accessible in the repository.
+\end{enumerate}
+
+By following these steps in GitHub Desktop, one can be able to perform the same actions as in the GitHub CLI, but with a graphical user interface. 
