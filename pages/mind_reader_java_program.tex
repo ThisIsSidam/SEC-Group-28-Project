@@ -1,0 +1,183 @@
+\section{Mind Reader JAVA Program}
+\subsection{Objective}
+The task is to change the button name from "Submit" to "Chin Tapak Dum Dum" in the *SymbolApp.java* program into a GitHub repository.
+
+\subsection{Program Overview}
+Process to Change the Button Name:
+\begin{itemize}
+    \item To rename the button in the code, the label of the button needs to be changed from "Submit" to the desired new label. In the code, the following line:
+    \begin{verbatim}
+    submitButton = new Button("Submit");
+    \end{verbatim}
+    \item Can be updated to reflect the new name for the button. The updated code would be:
+    \begin{verbatim}
+    submitButton = new Button("Chin Tapak Dum Dum");
+    \end{verbatim}
+    \item The result of the updated button name will be displayed to the user.
+\end{itemize}
+
+\subsection{Code Implementation}
+\begin{verbatim}
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Random;
+
+public class SymbolApp extends Frame implements ActionListener {
+    private Label[] symbolLabels = new Label[99];
+    private Button submitButton;
+    private String specialSymbol;
+    private String selectedSymbol;
+
+    public SymbolApp() {
+        // Generate a random special symbol
+        Random rand = new Random();
+        specialSymbol = Character.toString((char) (rand.nextInt(94) + 33)); // Random ASCII character from 33 to 126
+        selectedSymbol = specialSymbol;
+
+        // Setting up the main frame
+        setLayout(new BorderLayout());
+        setSize(800, 700);
+        setTitle("Symbol App");
+
+        // Adding instruction message
+        TextArea instruction = new TextArea(
+            "Think of any two digit number. Now reverse it and find the difference of them.\n" +
+            "Now find the number you got and remember the symbol from the panel below.\n" +
+            "Don't tell me, I'll read your mind! Hit the below button when you are ready to see the magic!",
+            5, 60, TextArea.SCROLLBARS_NONE);
+        instruction.setEditable(false);
+        instruction.setFont(new Font("Arial", Font.PLAIN, 16));
+        add(instruction, BorderLayout.NORTH);
+
+        // Panel for symbols
+        Panel symbolPanel = new Panel(new GridLayout(11, 9));
+        for (int i = 0; i < 99; i++) {
+            String symbol = (i % 9 == 0) ? specialSymbol : Character.toString((char) (33 + (i % 94)));
+            symbolLabels[i] = new Label(i + ": " + symbol); // Numbering symbols
+            symbolLabels[i].setAlignment(Label.CENTER);
+            symbolPanel.add(symbolLabels[i]);
+        }
+        add(symbolPanel, BorderLayout.CENTER);
+
+        // Panel for submit button
+        Panel controlPanel = new Panel(new FlowLayout());
+        submitButton = new Button("Chin Tapak Dum Dum");
+        submitButton.addActionListener(this);
+        controlPanel.add(submitButton);
+        add(controlPanel, BorderLayout.SOUTH);
+
+        // Setting up the window close event
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        // Clear the current content and display the selected symbol
+        if (ae.getSource() == submitButton) {
+            removeAll();
+            setLayout(new BorderLayout());
+            Label resultLabel = new Label(selectedSymbol, Label.CENTER);
+            resultLabel.setFont(new Font("Arial", Font.BOLD, 50));
+            add(resultLabel, BorderLayout.CENTER);
+            validate();
+            repaint();
+        }
+    }
+
+    public static void main(String[] args) {
+        new SymbolApp();
+    }
+}
+\end{verbatim}
+
+\subsection{Compiling and Running the Program}
+To run the Java Program:
+
+Prerequisites:
+\begin{itemize}
+    \item Ensure that the Java Development Kit (JDK) is installed. The JDK can be downloaded from Oracle's official website or installed using a package manager for the operating system in use.
+    \item While not mandatory, it may be easier to work with an Integrated Development Environment (IDE) such as IntelliJ IDEA, Eclipse, or NetBeans.
+\end{itemize}
+
+Steps to Run the Program:
+\begin{itemize}
+    \item \textbf{Install Java}
+
+    On Windows:
+    \begin{itemize}
+        \item Download the JDK from Oracle's website.
+        \item Install the JDK by following the instructions.
+        \item Set the \texttt{JAVA\_HOME} environment variable and update the \texttt{Path} environment variable with the JDK's bin directory.
+        \item To verify the installation, open Command Prompt and run \texttt{java -version}.
+    \end{itemize}
+
+    \item \textbf{Save the Program}
+    \begin{itemize}
+        \item Open a text editor (e.g., Notepad, VSCode, or any Java IDE).
+        \item Save the file as \texttt{SymbolApp.java}.
+    \end{itemize}
+
+    \item \textbf{Compile the Program}
+    \begin{itemize}
+        \item Open a terminal or command prompt.
+        \item Navigate to the directory where the \texttt{SymbolApp.java} file is saved.
+        \begin{verbatim}
+        cd path/to/your/java/file
+        \end{verbatim}
+        \item Compile the program with:
+        \begin{verbatim}
+        javac SymbolApp.java
+        \end{verbatim}
+        This will generate a \texttt{SymbolApp.class} file if there are no compilation errors.
+    \end{itemize}
+
+    \item \textbf{Run the Program}
+    \begin{itemize}
+        \item After successful compilation, run the program using:
+        \begin{verbatim}
+        java SymbolApp
+        \end{verbatim}
+        \item The application window will open, allowing interaction as described in the program.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Adding the JAVA Program to GitHub Repository via GitHub Desktop}
+To add this Java program to a GitHub repository using GitHub Desktop, follow these steps:
+\begin{enumerate}
+    \item Open \textbf{GitHub Desktop}.
+    \item Clone your repository:
+    \begin{enumerate}
+        \item In the top-left corner, click \textbf{File} \(\rightarrow\) \textbf{Clone Repository}.
+        \item Choose your repository from the list or paste the URL \texttt{https://github.com/yourusername/your-repo-name.git}.
+        \item Select the local path where you want to clone the repository and click \textbf{Clone}.
+    \end{enumerate}
+    \item Add the \texttt{SymbolApp.java} file to your local repository folder.
+    \item Return to \textbf{GitHub Desktop}.
+    \item In the \textbf{Changes} tab, you should see the \texttt{SymbolApp.java} file listed.
+    \item Commit the changes:
+    \begin{enumerate}
+        \item Enter a commit message such as \texttt{Rename button name in the JAVA program}.
+        \item Click the \textbf{Commit to master} button.
+    \end{enumerate}
+    \item Push the changes to GitHub:
+    \begin{enumerate}
+        \item Click \textbf{Push origin} to upload the commit to your GitHub repository.
+    \end{enumerate}
+    \item Verify the upload:
+    \begin{enumerate}
+        \item Visit your GitHub repository URL in a web browser.
+        \item Verify that the \texttt{SymbolApp.java} file is listed and accessible in the repository.
+    \end{enumerate}
+\end{enumerate}
+
+
+\subsection{Conclusion}
+\begin{itemize}
+    \item The button's text has been changed from "Submit" to "Chin Tapak Dum Dum".
+    \item The functionality of the button remains unchanged while updating its displayed label in the user interface.
+\end{itemize}
