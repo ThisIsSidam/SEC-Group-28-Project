@@ -1,0 +1,96 @@
+\section{Creating a LaTeX Repository on GitHub}
+\subsection{Objective}
+The purpose of this lab notebook entry is to document the process of creating a LaTeX repository on GitHub using Overleaf for document creation and Git CLI for version control and repository management.
+
+\subsection{Requirements}
+\begin{itemize}
+    \item GitHub account 
+    \item Overleaf account 
+    \item Git installed locally on your system 
+    \item A LaTeX project created in Overleaf
+    \item Command-line interface (CLI) access
+\end{itemize}
+
+\subsection{Procedure}
+
+\subsubsection{Step 1: Create and Edit LaTeX Project on Overleaf}
+\begin{enumerate}
+    \item Go to \url{https://www.overleaf.com} and create a new project.
+    \item Edit your LaTeX files using Overleaf’s online editor.
+    \item Ensure your project has all necessary files, such as:
+    \begin{itemize}
+        \item \texttt{main.tex} (main LaTeX document)
+        \item Images (stored in a folder like \texttt{images/})
+    \end{itemize}
+    \item Once you are satisfied with the project, download it as a zip file:
+    \begin{itemize}
+        \item Click on \texttt{Menu} $\rightarrow$ \texttt{Download $\rightarrow$ as Zip}.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Step 2: Extract and Organize Files Locally}
+\begin{enumerate}
+    \item Extract the downloaded zip file to a folder on your local machine.
+    \item Open a terminal (CLI) and navigate to the folder where the project is extracted.
+\end{enumerate}
+
+\subsubsection{Step 3: Initialize Git and Create a GitHub Repository}
+\begin{enumerate}
+    \item Log in to your GitHub account and create a new repository.
+    \begin{itemize}
+        \item Go to \url{https://github.com}, click on the \texttt{Repositories} tab, and then click \texttt{New}.
+        \item Name the repository (e.g., \texttt{latex-project}) and choose whether to make it public or private.
+        \item Optionally, initialize the repository with a \texttt{README.md}, a \texttt{.gitignore} and a license.
+    \end{itemize}
+    \item In the terminal, initialize Git in your project folder:
+    \begin{lstlisting}[language=bash]
+    git init
+    \end{lstlisting}
+    \item Add the remote GitHub repository to your local Git repository:
+    \begin{lstlisting}[language=bash]
+    git remote add origin github_repo_url
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Step 4: Push LaTeX Files to GitHub}
+\begin{enumerate}
+    \item Stage all the files for the first commit:
+    \begin{lstlisting}[language=bash]
+    git add *
+    \end{lstlisting}
+    \item Commit the changes with a message:
+    \begin{lstlisting}[language=bash]
+    git commit -m "Initial commit with LaTeX files"
+    \end{lstlisting}
+    \item Push the changes to the GitHub repository:
+    \begin{lstlisting}[language=bash]
+    git push -u origin main
+    \end{lstlisting}
+\end{enumerate}
+
+\subsection{Updating LaTeX Files}
+\subsubsection{Update LaTeX Files on Overleaf and Push Changes}
+
+\begin{enumerate}
+    \item Make necessary updates to your LaTeX files on Overleaf until you are satisfied with the changes.
+    \item Once the updates are complete, download the updated project as a zip file from Overleaf.
+    \item Extract the zip file locally, replacing the existing files in your project folder.
+    \item Open the terminal (CLI) and navigate to the project folder.
+    \item Stage the updated files for a new commit:
+    \begin{lstlisting}[language=bash]
+    git add *
+    \end{lstlisting}
+    \item Commit the changes with a descriptive message:
+    \begin{lstlisting}[language=bash]
+    git commit -m "Commit Message"
+    \end{lstlisting}
+    \item Push the updated files to the GitHub repository:
+    \begin{lstlisting}[language=bash]
+    git push origin main
+    \end{lstlisting}
+\end{enumerate}
+
+
+\subsection{Conclusion}
+This procedure successfully creates a LaTeX repository on GitHub using Overleaf for LaTeX project creation and the Git CLI for version control and repository management. By following these steps, LaTeX files can be easily managed in a Git repository, enabling version control, collaboration, and access to project files from any system.
+
